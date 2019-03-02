@@ -95,8 +95,8 @@ def scrape():
         #insert everything into MongoDB
         conn = 'mongodb://localhost:27017'
         client = pymongo.MongoClient(conn)
-        db = client.mars_db
-        db.mars_collection.drop()
+        db = client.mars_db   # see comment below
+        db.mars_collection.drop()  #please delete this line along with the above line if your MongoDB starts with no related collection so that nothing needs to be droped first.  
         db = client.mars_db
         collection = db.mars_collection
         collection.insert_one(Mars_scraped_data)
